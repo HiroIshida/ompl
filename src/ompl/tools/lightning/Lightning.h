@@ -204,7 +204,8 @@ namespace ompl
             base::PlannerPtr rrPlanner_;
 
             /** \brief Instance of parallel planning to use for computing solutions in parallel */
-            ompl::tools::ParallelPlanPtr pp_;
+            // ompl::tools::ParallelPlanPtr pp_;
+            base::PlannerPtr pp_;  // selected planner
 
             /** \brief A shared object between all the planners for saving and loading previous experience */
             ompl::tools::LightningDBPtr experienceDB_;
