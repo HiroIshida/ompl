@@ -35,6 +35,7 @@
 /* Author: Dave Coleman */
 
 #include "ompl/tools/lightning/Lightning.h"
+#include <stdexcept>
 #include "ompl/tools/lightning/LightningDB.h"
 
 namespace og = ompl::geometric;
@@ -77,16 +78,24 @@ void ompl::tools::Lightning::setup()
         if (!rrPlanner_->isSetup())
             rrPlanner_->setup();
 
-        // Create the parallel component for splitting into two threads
-        pp_ = std::make_shared<ot::ParallelPlan>(pdef_);
+        if (scratchEnabled_ and recallEnabled_){
+            throw std::runtime_error("[HiroIshida] this must be avoided");
+        }
+
+        // pp_ = std::make_shared<ot::ParallelPlan>(pdef_);
         if (!scratchEnabled_ && !recallEnabled_)
         {
             throw Exception("Both planning from scratch and experience have been disabled, unable to plan");
         }
+        // if (scratchEnabled_)
+        //     pp_->addPlanner(planner_);  // Add the planning from scratch planner if desired
+        // if (recallEnabled_)
+        //     pp_->addPlanner(rrPlanner_);  // Add the planning from experience planner if desired
+        //
         if (scratchEnabled_)
-            pp_->addPlanner(planner_);  // Add the planning from scratch planner if desired
+            pp_ = planner_;
         if (recallEnabled_)
-            pp_->addPlanner(rrPlanner_);  // Add the planning from experience planner if desired
+            pp_ = rrPlanner_;
 
         // Check if experience database is already loaded
         if (experienceDB_->isEmpty())
@@ -114,10 +123,10 @@ void ompl::tools::Lightning::clear()
         rrPlanner_->clear();
     if (pdef_)
         pdef_->clearSolutionPaths();
-    if (pp_)
-    {
-        pp_->clearHybridizationPaths();
-    }
+    // if (pp_)
+    // {
+    //     pp_->clearHybridizationPaths();
+    // }
 }
 
 // we provide a duplicate implementation here to allow the planner to choose how the time is turned into a planner

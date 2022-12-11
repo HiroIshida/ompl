@@ -52,7 +52,7 @@ class Plane2DEnvironment
 {
 public:
 
-    Plane2DEnvironment(const char *ppm_file, bool useThunder = true)
+    Plane2DEnvironment(const char *ppm_file, bool useThunder = false)
     {
         bool ok = false;
         try
@@ -71,16 +71,10 @@ public:
             space->addDimension(0.0, ppm_.getHeight());
             maxWidth_ = ppm_.getWidth() - 1;
             maxHeight_ = ppm_.getHeight() - 1;
-            if (useThunder)
-            {
-                expPlanner_ = std::make_shared<ot::Thunder>(space);
-                expPlanner_->setFilePath("thunder.db");
-            }
-            else
-            {
-                expPlanner_ = std::make_shared<ot::Lightning>(space);
-                expPlanner_->setFilePath("lightning.db");
-            }
+            expPlanner_ = std::make_shared<ot::Lightning>(space);
+            expPlanner_->setFilePath("lightning.db");
+            expPlanner_->enablePlanningFromRecall(false);
+            expPlanner_->enablePlanningFromScratch(true);
             // set state validity checking for this space
             expPlanner_->setStateValidityChecker([this](const ob::State *state)
                 { return isStateValid(state); });
