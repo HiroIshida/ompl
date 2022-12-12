@@ -52,6 +52,7 @@ ompl::geometric::LightningRetrieveRepair::LightningRetrieveRepair(const base::Sp
   : base::Planner(si, "LightningRetrieveRepair")
   , experienceDB_(std::move(experienceDB))
   , nearestK_(ompl::magic::NEAREST_K_RECALL_SOLUTIONS)  // default value
+  , smoothingEnabled_(false)
 {
     specs_.approximateSolutions = true;
     specs_.directed = true;
@@ -183,13 +184,16 @@ ompl::base::PlannerStatus ompl::geometric::LightningRetrieveRepair::solve(const 
     }
 
     // Smooth the result
-    OMPL_INFORM("LightningRetrieveRepair solve: Simplifying solution (smoothing)...");
-    time::point simplifyStart = time::now();
-    std::size_t numStates = primaryPath->getStateCount();
-    psk_->simplify(*primaryPath, ptc);
-    double simplifyTime = time::seconds(time::now() - simplifyStart);
-    OMPL_INFORM("LightningRetrieveRepair: Path simplification took %f seconds and removed %d states", simplifyTime,
-                numStates - primaryPath->getStateCount());
+    if (smoothingEnabled_)
+    {
+        OMPL_INFORM("LightningRetrieveRepair solve: Simplifying solution (smoothing)...");
+        time::point simplifyStart = time::now();
+        std::size_t numStates = primaryPath->getStateCount();
+        psk_->simplify(*primaryPath, ptc);
+        double simplifyTime = time::seconds(time::now() - simplifyStart);
+        OMPL_INFORM("LightningRetrieveRepair: Path simplification took %f seconds and removed %d states", simplifyTime,
+                    numStates - primaryPath->getStateCount());
+    }
 
     // Finished
     pdef_->addSolutionPath(primaryPath, false, 0., getName());
@@ -525,13 +529,16 @@ bool ompl::geometric::LightningRetrieveRepair::replan(const ompl::base::State *s
     newPathSegment = static_cast<ompl::geometric::PathGeometric &>(*p);
 
     // Smooth the result
-    OMPL_INFORM("LightningRetrieveRepair: Simplifying solution (smoothing)...");
-    time::point simplifyStart = time::now();
-    std::size_t numStates = newPathSegment.getStateCount();
-    psk_->simplify(newPathSegment, ptc);
-    double simplifyTime = time::seconds(time::now() - simplifyStart);
-    OMPL_INFORM("LightningRetrieveRepair: Path simplification took %f seconds and removed %d states", simplifyTime,
-                numStates - newPathSegment.getStateCount());
+    if (smoothingEnabled_)
+    {
+        OMPL_INFORM("LightningRetrieveRepair: Simplifying solution (smoothing)...");
+        time::point simplifyStart = time::now();
+        std::size_t numStates = newPathSegment.getStateCount();
+        psk_->simplify(newPathSegment, ptc);
+        double simplifyTime = time::seconds(time::now() - simplifyStart);
+        OMPL_INFORM("LightningRetrieveRepair: Path simplification took %f seconds and removed %d states", simplifyTime,
+                    numStates - newPathSegment.getStateCount());
+    }
 
     // Save the planner data for debugging purposes
     repairPlannerDatas_.push_back(std::make_shared<ompl::base::PlannerData>(si_));

@@ -193,6 +193,9 @@ namespace ompl
 
             /** \brief Number of 'k' close solutions to choose from database for further filtering */
             int nearestK_;
+
+            /** \brief Optionally smooth retrieved and repaired paths from database */
+            bool smoothingEnabled_;
         };
     }  // namespace geometric
 }  // namespace ompl
