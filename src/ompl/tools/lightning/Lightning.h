@@ -212,6 +212,9 @@ namespace ompl
 
             /** \brief Tool for comparing two paths and scoring them */
             ompl::tools::DynamicTimeWarpPtr dtw_;
+            bool smoothingEnabled_{false};
+
+            /** \brief Optionally smooth solution path */
 
         };  // end of class Lightning
 
