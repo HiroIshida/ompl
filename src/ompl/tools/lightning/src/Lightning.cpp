@@ -73,10 +73,12 @@ void ompl::tools::Lightning::setup()
         SimpleSetup::setup();
 
         // Setup planning from experience planner
-        rrPlanner_->setProblemDefinition(pdef_);
+        if(recallEnabled_){
+          rrPlanner_->setProblemDefinition(pdef_);
 
-        if (!rrPlanner_->isSetup())
-            rrPlanner_->setup();
+          if (!rrPlanner_->isSetup())
+              rrPlanner_->setup();
+        }
 
         if (scratchEnabled_ and recallEnabled_){
             throw std::runtime_error("[HiroIshida] this must be avoided");
