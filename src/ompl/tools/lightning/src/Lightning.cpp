@@ -186,7 +186,9 @@ ompl::base::PlannerStatus ompl::tools::Lightning::solve(const base::PlannerTermi
         OMPL_INFORM("Lightning Solve: Possible solution found in %f seconds", planTime_);
 
         // Smooth the result
-        simplifySolution(ptc);
+        if(smoothingEnabled_){
+          simplifySolution(ptc);
+        }
 
         og::PathGeometric solutionPath = getSolutionPath();  // copied so that it is non-const
         OMPL_INFORM("Solution path has %d states and was generated from planner %s", solutionPath.getStateCount(),
