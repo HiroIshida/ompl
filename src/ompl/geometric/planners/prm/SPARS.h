@@ -366,7 +366,7 @@ namespace ompl
                 return std::to_string(bestCost_.value());
             }
 
-        protected:
+        public:
             /** \brief Attempt to add a single sample to the roadmap. */
             DenseVertex addSample(base::State *workState, const base::PlannerTerminationCondition &ptc);
 

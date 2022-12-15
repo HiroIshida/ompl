@@ -102,7 +102,7 @@ namespace ompl
                 return !(*this == rhs);
             }
 
-        protected:
+        public:
             PlannerDataVertex() = default;
 
             friend class boost::serialization::access;
@@ -147,7 +147,7 @@ namespace ompl
                 return !(*this == rhs);
             }
 
-        protected:
+        public:
             friend class boost::serialization::access;
             template <class Archive>
             void serialize(Archive & /*ar*/, const unsigned int /*version*/)
@@ -409,7 +409,7 @@ namespace ompl
             /// \brief Any extra properties (key-value pairs) the planner can set.
             std::map<std::string, std::string> properties;
 
-        protected:
+        public:
             /// \brief A mapping of states to vertex indexes.  For fast lookup of vertex index.
             std::map<const State *, unsigned int> stateIndexMap_;
             /// \brief A mutable listing of the vertices marked as start states.  Stored in sorted order.

@@ -123,7 +123,7 @@ namespace ompl
 
             virtual void setup();
 
-        protected:
+        public:
             /// A motion (tree node) with parent pointer
             class Motion
             {

@@ -84,7 +84,7 @@ namespace ompl
             {
                 return k_;
             }
-        protected:
+        public:
             /** \brief Maximum number of nearest neighbors to attempt to connect new milestones to */
             unsigned int k_;
 
@@ -148,7 +148,7 @@ namespace ompl
                 return static_cast<KStrategy<Milestone> &>(*this)(m);
             }
 
-        protected:
+        public:
             /** \brief Function returning the number of milestones added to the roadmap so far */
             const NumNeighborsFn n_;
             const double kPRMConstant_;
@@ -190,7 +190,7 @@ namespace ompl
                 return result;
             }
 
-        protected:
+        public:
             /** \brief The maximum distance at which nearby milestones are reported */
             const double bound_;
         };

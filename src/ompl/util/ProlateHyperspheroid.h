@@ -94,7 +94,7 @@ namespace ompl
         /** \brief The state dimension of the PHS */
         unsigned int getDimension() const;
 
-    protected:
+    public:
     private:
         /** \brief A forward declaration to the data structure class for the PIMPL idiom. */
         struct PhsData;

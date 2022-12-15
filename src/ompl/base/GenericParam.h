@@ -111,7 +111,7 @@ namespace ompl
                 return rangeSuggestion_;
             }
 
-        protected:
+        public:
             /** \brief The name of the parameter */
             std::string name_;
 
@@ -180,7 +180,7 @@ namespace ompl
                 return getter_ ? std::to_string(getter_()) : "";
             }
 
-        protected:
+        public:
             /** \brief Helper function to convert strings into objects of type T
              *
              * Supported types are: bool, int, long, long long, unsigned int, unsigned long, unsigned long long, float,

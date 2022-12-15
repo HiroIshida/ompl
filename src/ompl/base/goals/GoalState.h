@@ -81,7 +81,7 @@ namespace ompl
             /** \brief Get the goal state */
             State *getState();
 
-        protected:
+        public:
             /** \brief The goal state */
             State *state_;
         };

@@ -350,7 +350,7 @@ namespace ompl
                 return std::to_string(bestCost_.value());
             }
 
-        protected:
+        public:
             /** \brief Free all the memory allocated by the planner */
             void freeMemory();
 

@@ -110,7 +110,7 @@ namespace ompl
             /// \brief Return true if the decomposition has diagonal edges
             bool hasDiagonalEdges() const;
 
-        protected:
+        public:
             // Create the new graph structure, mostly edge weights
             void constructGraph();
 

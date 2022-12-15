@@ -245,7 +245,7 @@ namespace ompl
              * simplification */
             bool freeStates() const;
 
-        protected:
+        public:
 
             int selectAlongPath(std::vector<double> dists, std::vector<base::State *> states,
                     double distTo, double threshold, base::State *select_state, int &pos);

@@ -115,7 +115,7 @@ namespace ompl
             /** \brief Sample a number of steps to execute a control for */
             virtual unsigned int sampleStepCount(unsigned int minSteps, unsigned int maxSteps);
 
-        protected:
+        public:
             /** \brief The control space this sampler operates on */
             const ControlSpace *space_;
 
@@ -146,7 +146,7 @@ namespace ompl
             void sampleNext(Control *control, const Control *previous) override;
             void sampleNext(Control *control, const Control *previous, const base::State *state) override;
 
-        protected:
+        public:
             /** \brief The instances of samplers used for compound sampler */
             std::vector<ControlSamplerPtr> samplers_;
 

@@ -81,7 +81,7 @@ namespace ompl
 
             void interpolateBundle(const Configuration *q_from, Configuration *q_to);
 
-        protected:
+        public:
             BundleSpaceGraph *bundleSpaceGraph_;
 
             base::State *xFiberStartTmp_;

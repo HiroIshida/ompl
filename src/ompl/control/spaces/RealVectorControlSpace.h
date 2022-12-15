@@ -134,7 +134,7 @@ namespace ompl
             /** \brief Deserializes a control from the serialization buffer. */
             void deserialize(Control *ctrl, const void *serialization) const override;
 
-        protected:
+        public:
             /** \brief The dimension of the state space */
             unsigned int dimension_;
 

@@ -78,7 +78,7 @@ namespace ompl
             void propagate(const base::State *state, const Control *control, double duration,
                            base::State *result) const override;
 
-        protected:
+        public:
             /** \brief The OpenDE environment this state propagator operates on */
             OpenDEEnvironmentPtr env_;
         };

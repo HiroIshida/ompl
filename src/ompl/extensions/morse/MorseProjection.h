@@ -67,7 +67,7 @@ namespace ompl
             /** \brief Compute the projection as an array of double values */
             void project(const State *state, Eigen::Ref<Eigen::VectorXd> projection) const override;
 
-        protected:
+        public:
             /** \brief The state space this projection operates on */
             MorseStateSpace *space_;
         };

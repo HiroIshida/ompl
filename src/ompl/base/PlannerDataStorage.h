@@ -100,7 +100,7 @@ namespace ompl
             /// StateSpace inside of the argument PlannerData.
             virtual void load(std::istream &in, PlannerData &pd);
 
-        protected:
+        public:
             /// \brief Information stored at the beginning of the PlannerData archive
             struct Header
             {

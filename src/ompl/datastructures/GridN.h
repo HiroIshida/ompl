@@ -213,7 +213,7 @@ namespace ompl
                 cells.push_back(static_cast<Cell *>(h.second));
         }
 
-    protected:
+    public:
         /// Compute how many sides of a coordinate touch the boundaries of the grid
         unsigned int numberOfBoundaryDimensions(const Coord &coord) const
         {

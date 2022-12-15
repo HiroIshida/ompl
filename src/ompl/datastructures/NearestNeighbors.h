@@ -109,7 +109,7 @@ namespace ompl
         /** \brief Get all the elements in the datastructure */
         virtual void list(std::vector<_T> &data) const = 0;
 
-    protected:
+    public:
         /** \brief The used distance function */
         DistanceFunction distFun_;
     };

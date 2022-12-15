@@ -151,7 +151,7 @@ namespace ompl
 
             void registerProjections() override;
 
-        protected:
+        public:
             /** \brief Flag indicating whether the state space is considering bounds or not */
             bool bounded_{false};
 

@@ -429,7 +429,7 @@ namespace ompl
             /** \brief Return true if setup was called */
             bool isSetup() const;
 
-        protected:
+        public:
             /** \brief Set default motion validator for the state space */
             void setDefaultMotionValidator();
 

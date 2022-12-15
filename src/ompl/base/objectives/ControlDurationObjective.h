@@ -62,7 +62,7 @@ namespace ompl
             /** \brief Returns the cost with the value of steps*dt. */
             Cost controlCost(const control::Control *c, unsigned int steps) const override;
 
-        protected:
+        public:
             /** \brief Duration of each control step. */
             double dt_;
         };

@@ -96,7 +96,7 @@ namespace ompl
                 return false;
             }
 
-        protected:
+        public:
             friend class boost::serialization::access;
             friend class PlannerDataStorage;
             friend class PlannerData;
@@ -159,7 +159,7 @@ namespace ompl
             /// \brief Returns true if this PlannerData instance has controls associated with it
             bool hasControls() const override;
 
-        protected:
+        public:
             /// \brief The instance of control::SpaceInformation associated with this data
             SpaceInformationPtr siC_;
             /// \brief A list of controls that are allocated during the decoupleFromPlanner method.

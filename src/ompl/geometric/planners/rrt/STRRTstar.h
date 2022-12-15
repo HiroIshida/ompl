@@ -124,7 +124,7 @@ namespace ompl
 
             void setup() override;
 
-        protected:
+        public:
 
             /** \brief A nearest-neighbor datastructure representing a tree of motions */
             using TreeData = std::shared_ptr<ompl::NearestNeighbors<base::Motion *>>;

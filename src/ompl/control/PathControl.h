@@ -199,7 +199,7 @@ namespace ompl
 
             /** @} */
 
-        protected:
+        public:
             /** \brief The list of states that make up the path */
             std::vector<base::State *> states_;
 

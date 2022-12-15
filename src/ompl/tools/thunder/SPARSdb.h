@@ -581,7 +581,7 @@ namespace ompl
             /** \brief Clear all past edge state information about in collision or not */
             void clearEdgeCollisionStates();
 
-        protected:
+        public:
             /** \brief Free all the memory allocated by the planner */
             void freeMemory();
 

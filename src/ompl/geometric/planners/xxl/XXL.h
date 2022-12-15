@@ -93,7 +93,7 @@ namespace ompl
                 rand_walk_rate_ = rate;
             }
 
-        protected:
+        public:
             // Quickly insert, check membership, and grab a unique integer from a range [0, max)
             class PerfectSet
             {
@@ -131,7 +131,7 @@ namespace ompl
                     return elements[idx];
                 }
 
-            protected:
+            public:
                 std::vector<bool> exists;
                 std::vector<unsigned int> elements;
             };
@@ -359,7 +359,7 @@ namespace ompl
                         leads[lead[i]]++;
                 }
 
-            protected:
+            public:
                 std::vector<Region> regions;   // The list of regions in this layer
                 std::vector<double> weights;   // Weight for each region
                 std::vector<bool> exterior;    // Exterior status for the regions in this layer

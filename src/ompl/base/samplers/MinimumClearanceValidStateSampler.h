@@ -77,7 +77,7 @@ namespace ompl
                 return clearance_;
             }
 
-        protected:
+        public:
             /** \brief The sampler to build upon */
             StateSamplerPtr sampler_;
 

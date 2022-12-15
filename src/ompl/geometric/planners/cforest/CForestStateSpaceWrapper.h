@@ -213,7 +213,7 @@ namespace ompl
                 space_->computeLocations();
             }
 
-        protected:
+        public:
             geometric::CForest *cforest_;
             StateSpace *space_;
             Planner *planner_;

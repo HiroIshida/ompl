@@ -149,14 +149,14 @@ namespace ompl
                             postEvent_(state, control, duration, result);
                     }
 
-                protected:
+                public:
                     ODESolverPtr solver_;
                     ODESolver::PostPropagationEvent postEvent_;
                 };
                 return std::make_shared<ODESolverStatePropagator>(std::move(solver), postEvent);
             }
 
-        protected:
+        public:
             /// \brief Solve the ODE given the initial state, and a control to apply for some duration.
             virtual void solve(StateType &state, const Control *control, double duration) const = 0;
 
@@ -206,7 +206,7 @@ namespace ompl
             {
             }
 
-        protected:
+        public:
             /// \brief Solve the ODE using boost::numeric::odeint.
             void solve(StateType &state, const Control *control, double duration) const override
             {
@@ -239,7 +239,7 @@ namespace ompl
                 return error_;
             }
 
-        protected:
+        public:
             /// \brief Solve the ODE using boost::numeric::odeint.  Save the resulting error values into error_.
             void solve(StateType &state, const Control *control, double duration) const override
             {
@@ -304,7 +304,7 @@ namespace ompl
                 maxEpsilonError_ = error;
             }
 
-        protected:
+        public:
             /// \brief Solve the ordinary differential equation given the input state
             /// of the system, a control to apply to the system, and the duration to
             /// apply the control.  The value of \e state will contain the final

@@ -94,7 +94,7 @@ namespace ompl
             virtual unsigned int sampleTo(Control *control, const Control *previous, const base::State *source,
                                           base::State *dest) = 0;
 
-        protected:
+        public:
             /** \brief The space information this sampler operates on */
             const SpaceInformation *si_;
         };

@@ -119,7 +119,7 @@ namespace ompl
             /** \brief Return a shortest Reeds-Shepp path from SE(2) state state1 to SE(2) state state2 */
             ReedsSheppPath reedsShepp(const State *state1, const State *state2) const;
 
-        protected:
+        public:
             virtual void interpolate(const State *from, const ReedsSheppPath &path, double t, State *state) const;
 
             /** \brief Turning radius */

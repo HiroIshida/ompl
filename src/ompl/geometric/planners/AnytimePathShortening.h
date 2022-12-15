@@ -200,7 +200,7 @@ namespace ompl
             /// \brief Print settings of this planner as well as those of the planner instances it contains
             void printSettings(std::ostream &out) const override;
 
-        protected:
+        public:
             /// \brief add a path to set of solutions
             /// \param path solution path
             /// \param planner planner that produced the solution. If planner==this, the path is

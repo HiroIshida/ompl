@@ -58,7 +58,7 @@ namespace ompl
             void sampleUniformNear(State *state, const State *near, double distance) override;
             void sampleGaussian(State *state, const State *mean, double stdDev) override;
 
-        protected:
+        public:
             /** \brief The states to sample from */
             const std::vector<const State *> &states_;
 

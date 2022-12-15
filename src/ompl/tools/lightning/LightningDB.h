@@ -151,7 +151,7 @@ namespace ompl
              */
             double distanceFunction(const ompl::base::PlannerDataPtr &a, const ompl::base::PlannerDataPtr &b) const;
 
-        protected:
+        public:
             /// The created space information
             base::SpaceInformationPtr si_;
 

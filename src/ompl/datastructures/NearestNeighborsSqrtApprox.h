@@ -115,7 +115,7 @@ namespace ompl
             throw Exception("No elements found in nearest neighbors data structure");
         }
 
-    protected:
+    public:
         /** \brief The maximum number of checks to perform when searching for a nearest neighbor */
         inline void updateCheckCount()
         {

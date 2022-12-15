@@ -77,7 +77,7 @@ namespace ompl
 
             void sampleFromRegion(int rid, RNG &rng, std::vector<double> &coord) const override;
 
-        protected:
+        public:
             /** \brief Helper method to return the bounds of a given region. */
             virtual const base::RealVectorBounds &getRegionBounds(int rid) const;
 

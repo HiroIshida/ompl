@@ -108,7 +108,7 @@ namespace ompl
             /** Helper for the OrderedInfSampler wrapper */
             unsigned int getMaxNumberOfIters() const;
 
-        protected:
+        public:
             /** \brief A copy of the problem definition */
             ProblemDefinitionPtr probDefn_;
             /** \brief A copy of the optimization objective */

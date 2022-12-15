@@ -307,7 +307,7 @@ namespace ompl
             out << std::endl;
         }
 
-    protected:
+    public:
         /// Free the allocated memory
         void freeMemory()
         {
@@ -377,7 +377,7 @@ namespace ompl
             return hash_.end();
         }
 
-    protected:
+    public:
         /// The dimension of the grid
         unsigned int dimension_;
 

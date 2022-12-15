@@ -182,7 +182,7 @@ namespace ompl
             /** \brief Check if the control space is compound */
             virtual bool isCompound() const;
 
-        protected:
+        public:
             /** \brief A type assigned for this control space */
             int type_;
 
@@ -274,7 +274,7 @@ namespace ompl
              user to add further components. */
             void lock();
 
-        protected:
+        public:
             /** \brief The component control spaces that make up the compound control space */
             std::vector<ControlSpacePtr> components_;
 

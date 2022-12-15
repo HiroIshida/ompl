@@ -86,7 +86,7 @@ namespace ompl
 
             void clear();
 
-        protected:
+        public:
             /** \brief Extracts the next sample when statesToSample_ is not empty. */
             void getNextSample(State *state);
 

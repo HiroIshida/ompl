@@ -236,7 +236,7 @@ namespace ompl
              * and base space */
             ProjectionPtr projection_;
 
-        protected:
+        public:
             /// Check if Bundle-space is bounded
             void checkBundleSpaceMeasure(std::string name, const ompl::base::StateSpacePtr space) const;
 

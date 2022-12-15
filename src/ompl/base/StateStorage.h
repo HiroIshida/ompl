@@ -153,7 +153,7 @@ namespace ompl
             /** \brief Output the set of states to a specified stream, in a human readable fashion */
             virtual void print(std::ostream &out = std::cout) const;
 
-        protected:
+        public:
             /** \brief Information stored at the beginning of the archive */
             struct Header
             {
@@ -260,7 +260,7 @@ namespace ompl
                 return metadata_[index];
             }
 
-        protected:
+        public:
             void loadMetadata(const Header & /*h*/, boost::archive::binary_iarchive &ia) override
             {
                 // clear default metadata that was added by StateStorage::loadStates()

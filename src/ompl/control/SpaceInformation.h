@@ -292,7 +292,7 @@ namespace ompl
             /** \brief Perform additional setup tasks (run once, before use) */
             void setup() override;
 
-        protected:
+        public:
             /** Declare parameter settings */
             void declareParams();
 

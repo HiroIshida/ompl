@@ -152,7 +152,7 @@ namespace ompl
                 nearestK_ = nearestK;
             }
 
-        protected:
+        public:
             /**
              * \brief Count the number of states along the discretized path that are in collision
              *        Note: This is kind of an ill-defined score though. It depends on the resolution of collision

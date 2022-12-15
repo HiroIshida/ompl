@@ -53,7 +53,7 @@ namespace ompl
             BundleSpaceGraphSamplerRandomEdge(BundleSpaceGraph *);
             virtual ~BundleSpaceGraphSamplerRandomEdge() = default;
 
-        protected:
+        public:
             virtual void sampleImplementation(base::State *xRandom) override;
         };
     }  // namespace multilevel

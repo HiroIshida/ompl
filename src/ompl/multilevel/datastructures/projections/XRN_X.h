@@ -55,7 +55,7 @@ namespace ompl
 
             virtual void projectFiber(const ompl::base::State *xBundle, ompl::base::State *xFiber) const override;
 
-        protected:
+        public:
             ompl::base::StateSpacePtr computeFiberSpace() override;
         };
     }

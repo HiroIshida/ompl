@@ -89,7 +89,7 @@ namespace ompl
             /** \brief Triple step pattern */
             bool tripleStep(HeadPtr &head, const base::State *sBundleGoal, double locationOnBasePathGoal);
 
-        protected:
+        public:
             /** \brief Pointer to associated bundle space */
             PathRestriction *restriction_;
 
@@ -100,7 +100,7 @@ namespace ompl
             base::State *xFiberGoal_{nullptr};
             base::State *xFiberTmp_{nullptr};
 
-        protected:
+        public:
             /** \brief Radius of restriction neighborhood */
             ParameterExponentialDecay neighborhoodRadiusBaseSpace_;
 

@@ -381,7 +381,7 @@ namespace ompl
 
             /** @} */
 
-        protected:
+        public:
             /** \brief Set of states on which there are anchored charts. */
             mutable std::vector<StateType *> anchors_;
 

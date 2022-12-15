@@ -170,7 +170,7 @@ namespace ompl
             void newSolutionFound(const base::Planner *planner, const std::vector<const base::State *> &states,
                                   base::Cost cost);
 
-        protected:
+        public:
             /** \brief Manages the call to solve() for each individual planner. */
             void solve(base::Planner *planner, const base::PlannerTerminationCondition &ptc);
 

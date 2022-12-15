@@ -223,7 +223,7 @@ namespace ompl
                 return ret;
             }
 
-        protected:
+        public:
             struct Edge
             {
                 double cost;

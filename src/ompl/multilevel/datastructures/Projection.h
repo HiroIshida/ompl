@@ -118,7 +118,7 @@ namespace ompl
             /// Return string representing type of ompl::base::StateSpace
             std::string stateTypeToString(base::StateSpacePtr) const;
 
-        protected:
+        public:
             base::StateSpacePtr bundleSpace_{nullptr};
             base::StateSpacePtr baseSpace_{nullptr};
 

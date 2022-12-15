@@ -178,7 +178,7 @@ namespace ompl
                 setup();
             }
 
-        protected:
+        public:
             /// \brief Representation of a motion in the search tree
             class Motion
             {

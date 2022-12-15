@@ -71,7 +71,7 @@ namespace ompl
     template <typename _T>
     class NearestNeighborsGNAT : public NearestNeighbors<_T>
     {
-    protected:
+    public:
         /// \cond IGNORE
         // internally, we use a priority queue for nearest neighbors, paired
         // with their distance to the query point
@@ -319,7 +319,7 @@ namespace ompl
             assert(lst.size() == size_);
         }
 
-    protected:
+    public:
         using GNAT = NearestNeighborsGNAT<_T>;
 
         /// Return true iff data has been marked for removal.

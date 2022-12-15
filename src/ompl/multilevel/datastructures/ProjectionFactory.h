@@ -76,7 +76,7 @@ namespace ompl
 
             // ProjectionPtr MakeProjections(const base::SpaceInformationPtr &Bundle);
 
-        protected:
+        public:
             ProjectionPtr makeProjection(const base::StateSpacePtr &BundleSpace, const base::StateSpacePtr &BaseSpace,
                                          bool areValidityCheckersEquivalent);
 

@@ -218,7 +218,7 @@ namespace ompl
 
             /** @} */
 
-        protected:
+        public:
             /** \brief Ambient space dimension. */
             const unsigned int n_;
 
@@ -282,7 +282,7 @@ namespace ompl
                 }
             }
 
-        protected:
+        public:
             void addConstraint(const ConstraintPtr &constraint)
             {
                 setManifoldDimension(k_ - constraint->getCoDimension());
@@ -315,7 +315,7 @@ namespace ompl
                 return Cost(constraint_->distance(s));
             }
 
-        protected:
+        public:
             /** \brief Optimizing constraint */
             ConstraintPtr constraint_;
         };

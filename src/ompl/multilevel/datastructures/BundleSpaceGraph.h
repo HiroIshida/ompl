@@ -375,7 +375,7 @@ namespace ompl
             /**\brief Call algorithm to solve the find section problem */
             bool findSection() override;
 
-        protected:
+        public:
             ompl::base::PathPtr solutionPath_;
 
             Vertex vStart_;

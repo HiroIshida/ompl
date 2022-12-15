@@ -121,7 +121,7 @@ namespace ompl
                 return false;
             }
 
-        protected:
+        public:
             /** \brief The instance of space information this state propagator operates on */
             SpaceInformation *si_;
         };

@@ -143,7 +143,7 @@ namespace ompl
 
             void getPlannerData(base::PlannerData &data) const override;
 
-        protected:
+        public:
             class Motion;
             struct MotionInfo;
 

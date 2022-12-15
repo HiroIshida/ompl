@@ -364,7 +364,7 @@ namespace ompl
             /** \brief Print information about the motion planner's settings */
             virtual void printSettings(std::ostream &out) const;
 
-        protected:
+        public:
             /** \brief This function declares a parameter for this planner instance, and specifies the setter and getter
              * functions. */
             template <typename T, typename PlannerType, typename SetterType, typename GetterType>

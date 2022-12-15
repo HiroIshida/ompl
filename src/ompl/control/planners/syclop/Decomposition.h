@@ -113,7 +113,7 @@ namespace ompl
             virtual void sampleFullState(const base::StateSamplerPtr &sampler, const std::vector<double> &coord,
                                          base::State *s) const = 0;
 
-        protected:
+        public:
             int dimension_;
             base::RealVectorBounds bounds_;
         };

@@ -151,7 +151,7 @@ namespace ompl
             data = data_;
         }
 
-    protected:
+    public:
         /** \brief The data elements stored in this structure */
         std::vector<_T> data_;
 

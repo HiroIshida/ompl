@@ -85,7 +85,7 @@ namespace ompl
              * metric. */
             bool checkMotion(const State *s1, const State *s2, std::pair<State *, double> &lastValid) const override;
 
-        protected:
+        public:
             /** \brief Space in which we check motion. */
             const ConstrainedStateSpace &ss_;
         };
@@ -312,7 +312,7 @@ namespace ompl
 
             /** @} */
 
-        protected:
+        public:
             /** \brief SpaceInformation associated with this space. Required
              * for early collision checking in manifold traversal. */
             SpaceInformation *si_{nullptr};

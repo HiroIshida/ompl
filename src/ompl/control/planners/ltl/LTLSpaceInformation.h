@@ -78,7 +78,7 @@ namespace ompl
 
             ProductGraph::State *getProdGraphState(const base::State *s) const;
 
-        protected:
+        public:
             enum SpaceIndex
             {
                 LOW_LEVEL = 0,

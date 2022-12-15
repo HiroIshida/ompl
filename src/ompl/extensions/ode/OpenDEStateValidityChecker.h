@@ -54,7 +54,7 @@ namespace ompl
             /** \brief A state is considered valid if it is within bounds and not in collision */
             bool isValid(const base::State *state) const override;
 
-        protected:
+        public:
             /** \brief The corresponding OpenDE state space */
             OpenDEStateSpace *osm_;
         };

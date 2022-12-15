@@ -139,7 +139,7 @@ namespace ompl
 
             void getPlannerData(base::PlannerData &data) const override;
 
-        protected:
+        public:
             /** \brief The definition of a motion */
             class Motion
             {

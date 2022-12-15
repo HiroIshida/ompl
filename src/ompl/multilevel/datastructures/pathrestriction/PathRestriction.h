@@ -155,7 +155,7 @@ namespace ompl
 
             virtual void print(std::ostream &) const;
 
-        protected:
+        public:
             /** \brief Pointer to associated bundle space */
             BundleSpaceGraph *bundleSpaceGraph_;
 

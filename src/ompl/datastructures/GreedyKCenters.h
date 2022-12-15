@@ -119,7 +119,7 @@ namespace ompl
                 dists(j, i) = distFun_(data[j], center);
         }
 
-    protected:
+    public:
         /** \brief The used distance function */
         DistanceFunction distFun_;
 

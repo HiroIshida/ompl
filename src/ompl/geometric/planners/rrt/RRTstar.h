@@ -328,7 +328,7 @@ namespace ompl
                 return bestCost_;
             }
 
-        protected:
+        public:
             /** \brief Representation of a motion */
             class Motion
             {

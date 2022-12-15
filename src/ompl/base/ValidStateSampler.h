@@ -116,7 +116,7 @@ namespace ompl
                 return params_;
             }
 
-        protected:
+        public:
             /** \brief The state space this sampler samples */
             const SpaceInformation *si_;
 

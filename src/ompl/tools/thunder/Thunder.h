@@ -178,7 +178,7 @@ namespace ompl
             /** \brief Allow accumlated experiences to be processed */
             bool doPostProcessing() override;
 
-        protected:
+        public:
             /**  The maintained experience planner instance */
             base::PlannerPtr rrPlanner_;
 

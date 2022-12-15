@@ -126,7 +126,7 @@ namespace ompl
                 return goalBias_;
             }
 
-        protected:
+        public:
             struct Cell;
             struct Motion;
 

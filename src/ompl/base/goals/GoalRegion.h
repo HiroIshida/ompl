@@ -84,7 +84,7 @@ namespace ompl
                 return threshold_;
             }
 
-        protected:
+        public:
             /** \brief The maximum distance that is allowed to the
                 goal. By default, this is initialized to the minimum
                 epsilon value a double can represent */

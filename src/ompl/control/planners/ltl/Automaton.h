@@ -178,7 +178,7 @@ namespace ompl
                 which accepts when one of the given propositions in [0,numProps-1] becomes true. */
             static AutomatonPtr DisjunctionAutomaton(unsigned int numProps);
 
-        protected:
+        public:
             unsigned int numProps_;
             unsigned int numStates_;
             int startState_{-1};

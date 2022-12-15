@@ -324,7 +324,7 @@ namespace ompl
              */
             bool saveResultsToFile() const;
 
-        protected:
+        public:
             /** \brief The instance of the problem to benchmark (if geometric planning) */
             geometric::SimpleSetup *gsetup_;
 

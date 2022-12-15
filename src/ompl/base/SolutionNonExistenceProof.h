@@ -64,7 +64,7 @@ namespace ompl
 
             virtual ~SolutionNonExistenceProof() = default;
 
-        protected:
+        public:
             SpaceInformationPtr si_;
         };
     }

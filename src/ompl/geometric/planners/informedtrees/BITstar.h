@@ -296,7 +296,7 @@ namespace ompl
             template <template <typename T> class NN>
             void setNearestNeighbors();
 
-        protected:
+        public:
             // ---
             // The settings that turn BIT* into ABIT*.
             // ---

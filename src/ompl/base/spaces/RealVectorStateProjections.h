@@ -74,7 +74,7 @@ namespace ompl
 
             void project(const State *state, Eigen::Ref<Eigen::VectorXd> projection) const override;
 
-        protected:
+        public:
             /** \brief The projection matrix */
             ProjectionMatrix projection_;
         };
@@ -152,7 +152,7 @@ namespace ompl
 
             void project(const State *state, Eigen::Ref<Eigen::VectorXd> projection) const override;
 
-        protected:
+        public:
             /** \brief Fill bounds_ with bounds from the state space */
             void copyBounds();
 

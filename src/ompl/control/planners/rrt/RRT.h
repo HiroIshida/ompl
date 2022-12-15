@@ -125,7 +125,7 @@ namespace ompl
 
             void setup() override;
 
-        protected:
+        public:
             /** \brief Representation of a motion
 
                 This only contains pointers to parent motions as we

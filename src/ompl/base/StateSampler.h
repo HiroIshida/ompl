@@ -99,7 +99,7 @@ namespace ompl
             */
             virtual void sampleGaussian(State *state, const State *mean, double stdDev) = 0;
 
-        protected:
+        public:
             /** \brief The state space this sampler samples */
             const StateSpace *space_;
 
@@ -137,7 +137,7 @@ namespace ompl
                 with stdDev scaled by the corresponding subspace weight. */
             void sampleGaussian(State *state, const State *mean, double stdDev) override;
 
-        protected:
+        public:
             /** \brief The samplers that are composed */
             std::vector<StateSamplerPtr> samplers_;
 
@@ -165,7 +165,7 @@ namespace ompl
 
             void sampleGaussian(State *state, const State *mean, double stdDev) override;
 
-        protected:
+        public:
             /** \brief The subspace to sample */
             const StateSpace *subspace_;
 

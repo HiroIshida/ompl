@@ -55,7 +55,7 @@ namespace ompl
             /** \brief A state is always considered valid if it satisfies the bounds */
             bool isValid(const State *state) const override;
 
-        protected:
+        public:
             /** \brief The corresponding MORSE state space */
             MorseStateSpace *mss_;
         };

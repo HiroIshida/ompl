@@ -108,7 +108,7 @@ namespace ompl
 
             friend struct std::hash<World>;
 
-        protected:
+        public:
             unsigned int numProps_;
             std::unordered_map<unsigned int, bool> props_;
         };

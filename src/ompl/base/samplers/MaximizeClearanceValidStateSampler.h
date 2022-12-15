@@ -69,7 +69,7 @@ namespace ompl
                 return improveAttempts_;
             }
 
-        protected:
+        public:
             /** \brief The sampler to build upon */
             StateSamplerPtr sampler_;
 

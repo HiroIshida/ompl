@@ -116,7 +116,7 @@ namespace ompl
 
             void setup() override;
 
-        protected:
+        public:
             /** \brief Representation of a motion */
             class Motion
             {

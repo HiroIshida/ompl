@@ -63,7 +63,7 @@ namespace ompl
 
             base::PathPtr getLowerSolutionPath() const;
 
-        protected:
+        public:
             void createGoal();
 
             LTLSpaceInformationPtr ltlsi_;

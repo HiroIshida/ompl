@@ -222,7 +222,7 @@ namespace ompl
                 Return the value value of that bit. */
             virtual bool evaluateCollision(const base::State *state) const;
 
-        protected:
+        public:
             /** \brief Representation of the OpenDE parameters OMPL needs to plan */
             OpenDEEnvironmentPtr env_;
         };

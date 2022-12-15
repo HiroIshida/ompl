@@ -162,7 +162,7 @@ namespace ompl
                 setup();
             }
 
-        protected:
+        public:
             /** \brief Representation of a motion
 
                 This only contains pointers to parent motions as we

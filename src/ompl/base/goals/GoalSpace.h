@@ -75,7 +75,7 @@ namespace ompl
             /** \brief Get the goal space */
             StateSpacePtr getSpace() const;
 
-        protected:
+        public:
             /** \brief The goal volume as defined by a state space. */
             StateSpacePtr goalSpace_;
 

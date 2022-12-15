@@ -75,7 +75,7 @@ namespace ompl
             void propagate(const base::State *state, const Control *control, double duration,
                            base::State *result) const override;
 
-        protected:
+        public:
             /** \brief The MORSE environment this state propagator operates on */
             base::MorseEnvironmentPtr env_;
         };

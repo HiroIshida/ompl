@@ -102,7 +102,7 @@ namespace ompl
             unsigned int sampleTo(Control *control, const Control *previous, const base::State *source,
                                   base::State *dest) override;
 
-        protected:
+        public:
             /** \brief Samples \e numControlSamples_ controls, and returns the
                 control that brings the system the closest to \e target */
             virtual unsigned int getBestControl(Control *control, const base::State *source, base::State *dest,

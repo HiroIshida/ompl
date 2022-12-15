@@ -248,7 +248,7 @@ namespace ompl
                 static const double PROB_SHORTEST_PATH /*= 0.95*/;
             };
 
-        protected:
+        public:
                        /** \brief Representation of a motion
 
                            A motion contains pointers to its state, its parent motion, and the control
@@ -428,7 +428,7 @@ namespace ompl
                 {
                 }
 
-            protected:
+            public:
                 const DecompositionPtr &decomp;
             };
 

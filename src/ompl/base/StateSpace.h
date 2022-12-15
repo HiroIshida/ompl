@@ -523,7 +523,7 @@ namespace ompl
                 setup() method is still called. */
             virtual void setup();
 
-        protected:
+        public:
             /** \brief The name used for the default projection */
             static const std::string DEFAULT_PROJECTION_NAME;
 
@@ -727,7 +727,7 @@ namespace ompl
 
             void setup() override;
 
-        protected:
+        public:
             /** \brief Allocate the state components. Called by allocState(). Usually called by derived state spaces. */
             void allocStateComponents(CompoundState *state) const;
 

@@ -133,7 +133,7 @@ namespace ompl
             base::PlannerStatus solve(const base::PlannerTerminationCondition &ptc, std::size_t minSolCount,
                                       std::size_t maxSolCount, bool hybridize = true);
 
-        protected:
+        public:
             /** \brief Run the planner and call ompl::base::PlannerTerminationCondition::terminate() for the other
              * planners once a first solution is found */
             void solveOne(base::Planner *planner, std::size_t minSolCount,

@@ -70,7 +70,7 @@ namespace ompl
             /** \brief Sample a state within a Gaussian distribution using underlying sampler. */
             void sampleGaussian(State *state, const State *mean, double stdDev) override;
 
-        protected:
+        public:
             /** \brief Underlying state sampler. */
             StateSamplerPtr sampler_;
         };
@@ -120,7 +120,7 @@ namespace ompl
                     return state_;
                 }
 
-            protected:
+            public:
                 /** \brief Underlying state. */
                 State *state_;
             };
@@ -416,7 +416,7 @@ namespace ompl
                 return space_;
             }
 
-        protected:
+        public:
             const StateSpacePtr space_;
         };
     }

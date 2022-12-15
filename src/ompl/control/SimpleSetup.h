@@ -271,7 +271,7 @@ namespace ompl
                 function automatically. */
             virtual void setup();
 
-        protected:
+        public:
             /// The created space information
             SpaceInformationPtr si_;
 

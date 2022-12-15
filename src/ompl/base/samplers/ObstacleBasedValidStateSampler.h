@@ -65,7 +65,7 @@ namespace ompl
             bool sample(State *state) override;
             bool sampleNear(State *state, const State *near, double distance) override;
 
-        protected:
+        public:
             /** \brief The sampler to build upon */
             StateSamplerPtr sampler_;
         };

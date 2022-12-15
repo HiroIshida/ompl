@@ -191,7 +191,7 @@ namespace ompl
                 return true;
             }
 
-        protected:
+        public:
             /// Flag indicating whether recalled plans should be used to find solutions. Enabled by default.
             bool recallEnabled_{true};
 

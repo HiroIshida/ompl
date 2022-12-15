@@ -128,7 +128,7 @@ namespace ompl
                 valid_ = invalid_ = 0;
             }
 
-        protected:
+        public:
             /** \brief The instance of space information this state validity checker operates on */
             SpaceInformation *si_;
 

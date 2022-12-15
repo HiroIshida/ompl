@@ -89,7 +89,7 @@ namespace ompl
             /* \brief Create explicit fiber space representation */
             void makeFiberSpace();
 
-        protected:
+        public:
             virtual ompl::base::StateSpacePtr computeFiberSpace() = 0;
 
             base::StateSpacePtr fiberSpace_{nullptr};

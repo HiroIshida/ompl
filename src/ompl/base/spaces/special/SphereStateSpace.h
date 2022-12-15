@@ -109,7 +109,7 @@ namespace ompl
              * space. */
             Eigen::Vector3f toVector(const State *state) const;
 
-        protected:
+        public:
             double radius_{1.0};
         };
     }

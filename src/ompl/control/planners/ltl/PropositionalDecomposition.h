@@ -99,7 +99,7 @@ namespace ompl
             void sampleFullState(const base::StateSamplerPtr &sampler, const std::vector<double> &coord,
                                  base::State *s) const override;
 
-        protected:
+        public:
             DecompositionPtr decomp_;
         };
     }

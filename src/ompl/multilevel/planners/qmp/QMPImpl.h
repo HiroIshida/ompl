@@ -73,7 +73,7 @@ namespace ompl
             void deleteConfiguration(Configuration *q) override;
             void updatePDF(Configuration *q);
 
-        protected:
+        public:
             std::vector<base::State *> randomWorkStates_;
 
             /** \brief k nearest variable */

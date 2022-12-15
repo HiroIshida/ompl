@@ -91,7 +91,7 @@ namespace ompl
             std::vector<ProductGraph::State *> getHighLevelPath(const std::vector<base::State *> &path,
                                                                 ProductGraph::State *start = nullptr) const;
 
-        protected:
+        public:
             /** \brief Representation of a motion
 
                 A motion contains pointers to its state, its parent motion, and the control

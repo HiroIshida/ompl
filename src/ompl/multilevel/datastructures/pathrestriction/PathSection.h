@@ -121,7 +121,7 @@ namespace ompl
 
             void print(std::ostream &) const;
 
-        protected:
+        public:
             PathRestriction *restriction_;
 
             /** \brief Interpolated section along restriction */

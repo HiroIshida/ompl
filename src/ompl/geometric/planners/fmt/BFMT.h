@@ -450,7 +450,7 @@ namespace ompl
 
             using BiDirMotionPtrs = std::vector<BiDirMotion *>;
 
-        protected:
+        public:
             /** \brief Comparator used to order motions in a binary heap */
             struct BiDirMotionCompare
             {

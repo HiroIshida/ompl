@@ -63,7 +63,7 @@ namespace ompl
 
             virtual void clear(){};
 
-        protected:
+        public:
             BundleSpaceGraph *bundleSpaceGraph_;
         };
     }

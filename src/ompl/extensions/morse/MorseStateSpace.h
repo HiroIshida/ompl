@@ -126,7 +126,7 @@ namespace ompl
             StateSamplerPtr allocDefaultStateSampler() const override;
             StateSamplerPtr allocStateSampler() const override;
 
-        protected:
+        public:
             /** \brief Representation of the MORSE parameters OMPL needs to plan */
             MorseEnvironmentPtr env_;
         };

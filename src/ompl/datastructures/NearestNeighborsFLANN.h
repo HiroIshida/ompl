@@ -70,7 +70,7 @@ namespace ompl
             return distFun_(*a, *b);
         }
 
-    protected:
+    public:
         const typename NearestNeighbors<_T>::DistanceFunction &distFun_;
     };
 
@@ -276,7 +276,7 @@ namespace ompl
             return dimension_;
         }
 
-    protected:
+    public:
         /// \brief Internal function to construct nearest neighbor
         /// data structure with initial elements stored in mat.
         void createIndex(const flann::Matrix<_T> &mat)

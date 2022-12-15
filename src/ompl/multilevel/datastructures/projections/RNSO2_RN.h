@@ -60,7 +60,7 @@ namespace ompl
             virtual void lift(const ompl::base::State *xBase, const ompl::base::State *xFiber,
                               ompl::base::State *xBundle) const override;
 
-        protected:
+        public:
             ompl::base::StateSpacePtr computeFiberSpace() override;
         };
     }

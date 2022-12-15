@@ -53,7 +53,7 @@ namespace ompl
             /** \brief Disable copy operator */
             const Control &operator=(const Control &) = delete;
 
-        protected:
+        public:
             Control() = default;
 
             virtual ~Control() = default;

@@ -73,7 +73,7 @@ namespace ompl
             /// must match those inside of the argument PlannerData.
             void store(const base::PlannerData &pd, std::ostream &out) override;
 
-        protected:
+        public:
             /// @cond IGNORE
             // Information stored at the beginning of the PlannerData archive
             struct Header : base::PlannerDataStorage::Header

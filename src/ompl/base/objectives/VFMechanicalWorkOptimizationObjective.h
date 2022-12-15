@@ -87,7 +87,7 @@ namespace ompl
                 return false;
             }
 
-        protected:
+        public:
             /** VectorField associated with the space. */
             geometric::VFRRT::VectorField vf_;
         };

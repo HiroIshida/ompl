@@ -208,7 +208,7 @@ namespace ompl
                 return extendedFMT_;
             }
 
-        protected:
+        public:
             /** \brief Representation of a motion
               */
             class Motion
@@ -317,7 +317,7 @@ namespace ompl
                     return children_;
                 }
 
-            protected:
+            public:
                 /** \brief The state contained by the motion */
                 base::State *state_{nullptr};
 

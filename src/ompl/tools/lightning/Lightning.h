@@ -191,7 +191,7 @@ namespace ompl
                 return dtw_;
             }
 
-        protected:
+        public:
             /**
              * \brief If path1 and path2 have a better start/goal match when reverse, then reverse path2
              * \param path to test against

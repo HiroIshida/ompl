@@ -94,7 +94,7 @@ namespace ompl
                 setup();
             }
 
-        protected:
+        public:
             Syclop::Motion *addRoot(const base::State *s) override;
             void selectAndExtend(Region &region, std::vector<Motion *> &newMotions) override;
 

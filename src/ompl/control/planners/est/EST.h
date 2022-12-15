@@ -140,7 +140,7 @@ namespace ompl
 
             void getPlannerData(base::PlannerData &data) const override;
 
-        protected:
+        public:
             /** \brief Representation of a motion
 
                 This only contains pointers to parent motions as we

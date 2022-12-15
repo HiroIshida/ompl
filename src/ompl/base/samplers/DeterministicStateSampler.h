@@ -95,7 +95,7 @@ namespace ompl
                 OMPL_ERROR("sampleGaussian is not supported for DeterministicStateSampler");
             }
 
-        protected:
+        public:
             std::shared_ptr<DeterministicSequence> sequence_ptr_;
         };
 

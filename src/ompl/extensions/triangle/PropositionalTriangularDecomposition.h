@@ -90,7 +90,7 @@ namespace ompl
             // Debug method: prints this decomposition as a list of polygons
             void print(std::ostream &out) const;
 
-        protected:
+        public:
             TriangularDecomposition *triDecomp_;
         };
     }

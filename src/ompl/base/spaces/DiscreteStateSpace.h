@@ -152,7 +152,7 @@ namespace ompl
 
             void setup() override;
 
-        protected:
+        public:
             /** \brief The lowest integer state */
             int lowerBound_;
 

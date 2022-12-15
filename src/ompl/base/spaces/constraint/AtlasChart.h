@@ -234,7 +234,7 @@ namespace ompl
              * \note Charts must be different charts from the same atlas. */
             static void generateHalfspace(AtlasChart *c1, AtlasChart *c2);
 
-        protected:
+        public:
             /** \brief The constraint function that defines the manifold. */
             const Constraint *constraint_;
 

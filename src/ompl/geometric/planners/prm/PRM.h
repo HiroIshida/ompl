@@ -289,7 +289,7 @@ namespace ompl
                 return nn_;
             }
 
-        protected:
+        public:
             /** \brief Free all the memory allocated by the planner */
             void freeMemory();
 

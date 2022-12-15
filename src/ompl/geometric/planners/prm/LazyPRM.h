@@ -249,7 +249,7 @@ namespace ompl
 
             base::PlannerStatus solve(const base::PlannerTerminationCondition &ptc) override;
 
-        protected:
+        public:
             /** \brief Flag indicating validity of an edge of a vertex */
             static const unsigned int VALIDITY_UNKNOWN = 0;
 

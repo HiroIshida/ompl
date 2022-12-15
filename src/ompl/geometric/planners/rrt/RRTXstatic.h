@@ -283,7 +283,7 @@ namespace ompl
                 return bestCost_;
             }
 
-        protected:
+        public:
             class Motion;
 
             /** \brief Defines the operator to compare motions */

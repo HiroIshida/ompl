@@ -83,7 +83,7 @@ namespace ompl
             /** \brief Get dimensionality of the multilevel abstraction */
             std::vector<int> getDimensionsPerLevel() const;
 
-        protected:
+        public:
             /** \brief Solution paths on each abstraction level */
             std::vector<ompl::base::PathPtr> solutions_;
 

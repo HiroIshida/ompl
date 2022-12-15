@@ -60,7 +60,7 @@ namespace ompl
         /// Datatype for cell coordinates
         using Coord = typename GridN<_T>::Coord;
 
-    protected:
+    public:
         /// \cond IGNORE
         // the type of cell here needs an extra pointer to allow the updatable heap to work fast
         // however, this stays hidden from the user
@@ -282,7 +282,7 @@ namespace ompl
             out << countExternal() << " external cells" << std::endl;
         }
 
-    protected:
+    public:
         /// Pointer to function to be called when a cell needs to be updated
         EventCellUpdate eventCellUpdate_;
 

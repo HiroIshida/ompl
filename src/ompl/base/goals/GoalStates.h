@@ -83,7 +83,7 @@ namespace ompl
             /** \brief Return the number of valid goal states */
             virtual std::size_t getStateCount() const;
 
-        protected:
+        public:
             /** \brief The goal states. Only ones that are valid are considered by the motion planner. */
             std::vector<State *> states_;
 

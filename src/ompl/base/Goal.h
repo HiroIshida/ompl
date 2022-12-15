@@ -141,7 +141,7 @@ namespace ompl
             /** \brief Print information about the goal */
             virtual void print(std::ostream &out = std::cout) const;
 
-        protected:
+        public:
             /** \brief Goal type */
             GoalType type_;
 

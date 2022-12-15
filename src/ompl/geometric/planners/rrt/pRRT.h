@@ -135,7 +135,7 @@ namespace ompl
 
             void setup() override;
 
-        protected:
+        public:
             class Motion
             {
             public:

@@ -183,7 +183,7 @@ namespace ompl
 
             void setup() override;
 
-        protected:
+        public:
             /** \brief The dimension of the space */
             unsigned int dimension_;
 

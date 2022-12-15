@@ -102,7 +102,7 @@ namespace ompl
             /// \brief Return true if the decomposition has diagonal edges
             bool hasDiagonalEdges() const;
 
-        protected:
+        public:
             // Compute the neighbors of rid (no diagonal edges)
             void getNonDiagonalNeighbors(int rid, std::vector<int> &neighbors) const;
 

@@ -404,7 +404,7 @@ namespace ompl
             /** \brief Print information about the start and goal states and the optimization objective */
             void print(std::ostream &out = std::cout) const;
 
-        protected:
+        public:
             /** \brief Helper function for fixInvalidInputStates(). Attempts to fix an individual state */
             bool fixInvalidInputState(State *state, double dist, bool start, unsigned int attempts);
 

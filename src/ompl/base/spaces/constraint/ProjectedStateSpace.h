@@ -75,7 +75,7 @@ namespace ompl
                 manifold. Return sample in \a state. */
             void sampleGaussian(State *state, const State *mean, double stdDev) override;
 
-        protected:
+        public:
             /** \brief Constraint. */
             const ConstraintPtr constraint_;
         };

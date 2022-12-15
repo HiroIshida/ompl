@@ -151,7 +151,7 @@ namespace ompl
                 return std::to_string(bestCost_);
             }
 
-        protected:
+        public:
             /** \brief Representation of a motion
 
                 a motion is a simultunaeous represntation of the two trees used by LBT-RRT

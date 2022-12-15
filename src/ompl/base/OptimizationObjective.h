@@ -187,7 +187,7 @@ namespace ompl
             /** \brief Print information about this optimization objective */
             virtual void print(std::ostream &out) const;
 
-        protected:
+        public:
             /** \brief The space information for this objective */
             SpaceInformationPtr si_;
 
@@ -255,7 +255,7 @@ namespace ompl
               its weight */
             Cost motionCost(const State *s1, const State *s2) const override;
 
-        protected:
+        public:
             /** \brief Defines a pairing of an objective and its weight */
             struct Component
             {

@@ -91,7 +91,7 @@ namespace ompl
             */
             bool isMotionCostInterpolationEnabled() const;
 
-        protected:
+        public:
             /** \brief If true, then motionCost() will more accurately compute
                 the cost of a motion by taking small steps along the
                 motion and accumulating the cost. This sacrifices speed

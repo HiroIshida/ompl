@@ -155,7 +155,7 @@ namespace ompl
                 return spars_->getNumVertices() == 0u;
             }
 
-        protected:
+        public:
             /// The created space information
             base::SpaceInformationPtr si_;  // TODO: is this even necessary?
 

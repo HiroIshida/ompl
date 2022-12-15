@@ -98,7 +98,7 @@ namespace ompl
             /** \brief Scale epsilon appropriately after time or space bounds were set. */
             void updateEpsilon();
 
-        protected:
+        public:
             /** \brief The maximum velocity of the space. */
             double vMax_;
 

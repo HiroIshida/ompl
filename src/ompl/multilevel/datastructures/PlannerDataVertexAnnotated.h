@@ -107,7 +107,7 @@ namespace ompl
 
             friend std::ostream &operator<<(std::ostream &, const PlannerDataVertexAnnotated &);
 
-        protected:
+        public:
             /** \brief The level for the base state */
             unsigned int level_{0};
 

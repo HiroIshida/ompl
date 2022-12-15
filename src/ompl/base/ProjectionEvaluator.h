@@ -258,7 +258,7 @@ namespace ompl
             virtual void printProjection(const Eigen::Ref<Eigen::VectorXd> &projection,
                                          std::ostream &out = std::cout) const;
 
-        protected:
+        public:
             /** \brief Fill estimatedBounds_ with an approximate bounding box for the projection space (via sampling) */
             void estimateBounds();
 
@@ -314,7 +314,7 @@ namespace ompl
 
             void project(const State *state, Eigen::Ref<Eigen::VectorXd> projection) const override;
 
-        protected:
+        public:
             /** \brief The index of the subspace from which to project */
             unsigned int index_;
 

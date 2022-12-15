@@ -82,7 +82,7 @@ namespace ompl
                 more than \e maxSol solutions are generated, stop generating more. */
             base::PlannerStatus solve(double solveTime, unsigned int maxSol = 10, unsigned int nthreads = 1);
 
-        protected:
+        public:
             /** \brief Instance of parallel planning to use for computing solutions in parallel */
             ParallelPlan pp_;
 

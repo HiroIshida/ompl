@@ -135,7 +135,7 @@ namespace ompl
                 return std::to_string(bestCost_);
             }
 
-        protected:
+        public:
             /** \brief Representation of a motion */
             class Motion
             {

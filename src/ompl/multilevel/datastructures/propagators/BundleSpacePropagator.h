@@ -22,7 +22,7 @@ namespace ompl
 
             virtual bool steer(const Configuration *from, const Configuration *to, Configuration *result) = 0;
 
-        protected:
+        public:
             BundleSpaceGraph *bundleSpaceGraph_;
         };
     }

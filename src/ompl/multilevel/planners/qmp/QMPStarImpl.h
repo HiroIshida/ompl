@@ -56,7 +56,7 @@ namespace ompl
             QMPStarImpl(const ompl::base::SpaceInformationPtr &si, BundleSpace *parent_);
             virtual ~QMPStarImpl() override;
 
-        protected:
+        public:
             virtual unsigned int computeK() override;
 
             double kPRMStarConstant_{0};

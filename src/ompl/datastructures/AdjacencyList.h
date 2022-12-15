@@ -106,7 +106,7 @@ namespace ompl
             // The total distance from vtx to each node is stored in distance.  A value of double::max() indicates an unreachable node.
             void dijkstra(int vtx, std::vector<int>& predecessors, std::vector<double>& distance) const;
 
-        protected:
+        public:
 
             // Mutex, for thread safety
             mutable boost::mutex lock_;

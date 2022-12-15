@@ -267,7 +267,7 @@ namespace ompl
 
             /** @} */
 
-        protected:
+        public:
             /** \brief Free the memory corresponding to the states on this path */
             void freeMemory();
 

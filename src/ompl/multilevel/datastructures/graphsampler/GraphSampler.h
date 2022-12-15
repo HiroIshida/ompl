@@ -49,7 +49,7 @@ namespace ompl
     {
         class BundleSpaceGraphSampler
         {
-        protected:
+        public:
             using Vertex = ompl::multilevel::BundleSpaceGraph::Vertex;
 
         public:
@@ -69,7 +69,7 @@ namespace ompl
 
             virtual void clear();
 
-        protected:
+        public:
             virtual void sampleImplementation(base::State *xRandom) = 0;
 
             using RNGType = boost::minstd_rand;

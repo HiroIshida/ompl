@@ -110,7 +110,7 @@ namespace ompl
              * */
             void setFindSectionStrategy(FindSectionType type);
 
-        protected:
+        public:
             /** \brief Starting from a baseState on baseLevel, we lift
              * it iteratively upwards into the total space of the sequence. For
              * each lift, we choose an identity fiber element using the

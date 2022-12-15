@@ -133,7 +133,7 @@ namespace ompl
 
             void getPlannerData(base::PlannerData &data) const override;
 
-        protected:
+        public:
             struct MotionInfo;
 
             /** \brief A grid cell */

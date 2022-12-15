@@ -55,7 +55,7 @@ namespace ompl
             /** \brief Disable copy operator */
             const State &operator=(const State &) = delete;
 
-        protected:
+        public:
             State() = default;
 
             virtual ~State() = default;

@@ -130,7 +130,7 @@ namespace ompl
             // Debug method: prints this decomposition as a list of polygons
             void print(std::ostream &out) const;
 
-        protected:
+        public:
             /** \brief Helper method to triangulate the space and return the number of triangles. */
             virtual int createTriangles();
 
@@ -171,7 +171,7 @@ namespace ompl
 
                 void buildTriangleMap(const std::vector<Triangle> &triangles);
 
-            protected:
+            public:
                 const Decomposition *triDecomp;
                 /* map from locator grid cell ID to set of triangles with which
                  * that cell intersects */

@@ -118,7 +118,7 @@ namespace ompl
             /** \brief Print the path to a stream */
             virtual void print(std::ostream &out) const = 0;
 
-        protected:
+        public:
             /** \brief The space information this path is part of */
             SpaceInformationPtr si_;
         };
