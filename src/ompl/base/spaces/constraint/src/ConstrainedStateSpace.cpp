@@ -36,6 +36,7 @@
 
 #include "ompl/tools/config/MagicConstants.h"
 #include "ompl/base/spaces/constraint/ConstrainedStateSpace.h"
+#include "ompl/util/Console.h"
 #include "ompl/util/Exception.h"
 
 /// ConstrainedMotionValidator
@@ -275,8 +276,12 @@ void ompl::base::ConstrainedStateSpace::interpolate(const State *from, const Sta
 
     // Default to returning `from' if traversal fails.
     auto temp = from;
-    if (discreteGeodesic(from, to, true, &geodesic))
-        temp = geodesicInterpolate(geodesic, t);
+    bool success = discreteGeodesic(from, to, true, &geodesic);
+    if(success){
+      temp = geodesicInterpolate(geodesic, t);
+    }else{
+      OMPL_WARN("interpolation fail");
+    }
 
     copyState(state, temp);
 
