@@ -462,7 +462,7 @@ void ompl::tools::Thunder::printLogs(std::ostream &out) const
 
 std::size_t ompl::tools::Thunder::getExperiencesCount() const
 {
-    return experienceDB_->getSPARSdb()->getNumVertices();
+    return experienceDB_->getNumPathsInserted();
 }
 
 void ompl::tools::Thunder::getAllPlannerDatas(std::vector<ob::PlannerDataPtr> &plannerDatas) const
