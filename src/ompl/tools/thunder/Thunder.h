@@ -194,9 +194,6 @@ namespace ompl
             /** \brief A shared object between all the planners for saving and loading previous experience */
             ompl::tools::ThunderDBPtr experienceDB_;
 
-            /** \brief Accumulated experiences to be later added to experience database */
-            std::vector<ompl::geometric::PathGeometric> queuedSolutionPaths_;
-
         };  // end of class Thunder
 
     }  // end of namespace

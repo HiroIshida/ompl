@@ -257,8 +257,7 @@ ompl::base::PlannerStatus ompl::tools::Lightning::solve(const base::PlannerTermi
                     stats_.numSolutionsFromRecallSaved_++;
 
                     // Save to database
-                    double dummyInsertionTime;  // unused because does not include scoring function
-                    experienceDB_->addPath(solutionPath, dummyInsertionTime);
+                    queuedSolutionPaths_.push_back(solutionPath);
                 }
                 insertionTime += time::seconds(time::now() - startTime);
             }
@@ -292,7 +291,7 @@ ompl::base::PlannerStatus ompl::tools::Lightning::solve(const base::PlannerTermi
                 log.is_saved = "saving";
 
                 // Save to database
-                experienceDB_->addPath(solutionPath, insertionTime);
+                queuedSolutionPaths_.push_back(solutionPath);
             }
         }
     }
@@ -300,7 +299,6 @@ ompl::base::PlannerStatus ompl::tools::Lightning::solve(const base::PlannerTermi
     stats_.totalInsertionTime_ += insertionTime;  // used for averaging
 
     // Final log data
-    log.insertion_time = insertionTime;
     log.num_vertices = experienceDB_->getStatesCount();
     log.num_edges = 0;
     log.num_connected_components = 0;
@@ -428,4 +426,19 @@ bool ompl::tools::Lightning::reversePathIfNecessary(og::PathGeometric &path1, og
     }
 
     return false;
+}
+
+bool ompl::tools::Lightning::doPostProcessing()
+{
+    OMPL_INFORM("Performing post-processing");
+
+    for (auto &queuedSolutionPath : queuedSolutionPaths_)
+    {
+        double dummyInsertionTime;  // unused because does not include scoring function
+        experienceDB_->addPath(queuedSolutionPath, dummyInsertionTime);
+    }
+    // Remove all inserted paths from the queue
+    queuedSolutionPaths_.clear();
+
+    return true;
 }

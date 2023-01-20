@@ -206,6 +206,9 @@ namespace ompl
 
             /** \brief States data for display to console  */
             ExperienceStats stats_;
+
+            /** \brief Accumulated experiences to be later added to experience database */
+            std::vector<ompl::geometric::PathGeometric> queuedSolutionPaths_;
         };
     }
 }

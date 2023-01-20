@@ -191,6 +191,8 @@ namespace ompl
                 return dtw_;
             }
 
+            bool doPostProcessing() override;
+
         protected:
             /**
              * \brief If path1 and path2 have a better start/goal match when reverse, then reverse path2

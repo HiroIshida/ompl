@@ -108,7 +108,7 @@ struct ExperienceBasedPlannerTest
             exp_planner->setFilePath(temp_path.string());
 
             const auto valid_sampler = exp_planner->getSpaceInformation()->allocValidStateSampler();
-            // note that the experience is not always be stored even when solved
+            // note that the experience is not always stored even when solved
             // so we need while loop
             while (exp_planner->getExperiencesCount() < 5)
             {
@@ -118,6 +118,7 @@ struct ExperienceBasedPlannerTest
                 valid_sampler->sample(goal.get());
                 exp_planner->setStartAndGoalStates(start, goal);
                 exp_planner->solve(10);
+                exp_planner->doPostProcessing();
             }
             BOOST_CHECK_EQUAL(exp_planner->getExperiencesCount(), n_problem);
             exp_planner->save();
@@ -158,10 +159,6 @@ BOOST_AUTO_TEST_CASE(LightningTest)
     ExperienceBasedPlannerTest<ot::Lightning, og::KPIECE1, og::RRTConnect>::runTest();
     ExperienceBasedPlannerTest<ot::Lightning, og::RRTConnect, og::KPIECE1>::runTest();
 }
-
-// TODO(HiroIshida): fix bug in thunder and unify the behavior with Lightning
-// The following tests will fail becaues although Lightning and Thunder has the same
-// interface, the actual behavior is bit different.
 
 // BOOST_AUTO_TEST_CASE(ThunderTest)
 // {
