@@ -48,19 +48,19 @@
                              + OMPL_MINOR_VERSION * 1000        \
                              + OMPL_PATCH_VERSION)
 
-/** \brief Specify whether the MORSE extension is built */
-#cmakedefine01 OMPL_EXTENSION_MORSE
-
-/** \brief Specify whether the ODE extension is built */
-#cmakedefine01 OMPL_EXTENSION_ODE
-
-/** \brief Whether FLANN is installed */
-#cmakedefine01 OMPL_HAVE_FLANN
-
-/** \brief Whether SPOT is installed */
-#cmakedefine01 OMPL_HAVE_SPOT
-
-/** \brief Whether Numpy and Boost.Numpy are installed */
-#cmakedefine01 OMPL_HAVE_NUMPY
+// /** \brief Specify whether the MORSE extension is built */
+// #cmakedefine01 OMPL_EXTENSION_MORSE
+// 
+// /** \brief Specify whether the ODE extension is built */
+// #cmakedefine01 OMPL_EXTENSION_ODE
+// 
+// /** \brief Whether FLANN is installed */
+// #cmakedefine01 OMPL_HAVE_FLANN
+// 
+// /** \brief Whether SPOT is installed */
+// #cmakedefine01 OMPL_HAVE_SPOT
+// 
+// /** \brief Whether Numpy and Boost.Numpy are installed */
+// #cmakedefine01 OMPL_HAVE_NUMPY
 
 #endif
