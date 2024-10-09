@@ -37,8 +37,11 @@
 #ifndef OMPL_GEOMETRIC_PLANNERS_KPIECE_KPIECE1_
 #define OMPL_GEOMETRIC_PLANNERS_KPIECE_KPIECE1_
 
+#include "ompl/base/Constraint.h"
 #include "ompl/geometric/planners/PlannerIncludes.h"
 #include "ompl/geometric/planners/kpiece/Discretization.h"
+#include <functional>
+#include <optional>
 
 namespace ompl
 {
@@ -250,6 +253,21 @@ namespace ompl
 
             /** \brief The most recent goal motion.  Used for PlannerData computation */
             Motion *lastGoalMotion_{nullptr};
+        };
+
+        class IKPIECE1 : public KPIECE1 {
+          public:
+            base::PlannerStatus solve(const base::PlannerTerminationCondition &ptc) override;
+            void set_motion_step_box(const Eigen::VectorXd &motion_step_box) {
+                motion_step_box_ = motion_step_box;
+            }
+            void set_project_fn(std::function<bool(Eigen::Ref<Eigen::VectorXd>)> project_fn) {
+                project_fn_ = std::move(project_fn); 
+            }
+          private:
+            Eigen::VectorXd motion_step_box_;
+            std::function<bool(Eigen::Ref<Eigen::VectorXd>)> project_fn_;
+            base::ConstraintPtr constraint_;
         };
     }
 }

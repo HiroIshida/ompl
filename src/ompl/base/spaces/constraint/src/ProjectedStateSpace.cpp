@@ -55,6 +55,11 @@ void ompl::base::ProjectedStateSampler::sampleUniform(State *state)
     space_->enforceBounds(state);
 }
 
+void ompl::base::ProjectedStateSampler::sampleUniformWithoutProjection(State *state)
+{
+    WrapperStateSampler::sampleUniform(state);
+}
+
 void ompl::base::ProjectedStateSampler::sampleUniformNear(State *state, const State *near, const double distance)
 {
     WrapperStateSampler::sampleUniformNear(state, near, distance);

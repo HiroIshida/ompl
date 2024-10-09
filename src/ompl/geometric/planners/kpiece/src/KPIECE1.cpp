@@ -35,10 +35,12 @@
 /* Author: Ioan Sucan */
 
 #include "ompl/geometric/planners/kpiece/KPIECE1.h"
-#include "ompl/base/goals/GoalSampleableRegion.h"
+#include "ompl/base/goals/GoalState.h"
+#include "ompl/base/spaces/constraint/ProjectedStateSpace.h"
 #include "ompl/tools/config/SelfConfig.h"
 #include <limits>
 #include <cassert>
+#include <memory>
 
 ompl::geometric::KPIECE1::KPIECE1(const base::SpaceInformationPtr &si)
   : base::Planner(si, "KPIECE1"), disc_([this](Motion *m) { freeMotion(m); })
@@ -213,4 +215,137 @@ void ompl::geometric::KPIECE1::getPlannerData(base::PlannerData &data) const
 {
     Planner::getPlannerData(data);
     disc_.getPlannerData(data, 0, true, lastGoalMotion_);
+}
+
+
+ompl::base::PlannerStatus ompl::geometric::IKPIECE1::solve(const base::PlannerTerminationCondition &ptc)
+{
+    if(this->project_fn_ == nullptr) {
+      throw ompl::Exception("Constraint is not set");
+    }
+    checkValidity();
+    base::Goal *goal = pdef_->getGoal().get();
+    auto *goal_state = dynamic_cast<base::GoalState *>(goal);
+    // auto *goal_s = dynamic_cast<base::GoalSampleableRegion *>(goal);
+
+    Discretization<Motion>::Coord xcoord(projectionEvaluator_->getDimension());
+
+    while (const base::State *st = pis_.nextStart())
+    {
+        auto *motion = new Motion(si_);
+        si_->copyState(motion->state, st);
+        projectionEvaluator_->computeCoordinates(motion->state, xcoord);
+        disc_.addMotion(motion, xcoord, 1.0);
+    }
+
+    if (disc_.getMotionCount() == 0)
+    {
+        OMPL_ERROR("%s: There are no valid initial states!", getName().c_str());
+        return base::PlannerStatus::INVALID_START;
+    }
+
+    if (!sampler_)
+        sampler_ = si_->allocStateSampler();
+    // auto psampler = std::dynamic_pointer_cast<std::shared_ptr<ompl::base::ProjectedStateSampler>>(sampler_);
+    auto psampler = std::dynamic_pointer_cast<ompl::base::ProjectedStateSampler>(sampler_);
+
+    OMPL_INFORM("%s: Starting planning with %u states already in datastructure", getName().c_str(),
+                disc_.getMotionCount());
+
+    Motion *solution = nullptr;
+    Motion *approxsol = nullptr;
+    double approxdif = std::numeric_limits<double>::infinity();
+    base::State *xstate = si_->allocState();
+
+    while (!ptc)
+    {
+        disc_.countIteration();
+
+        /* Decide on a state to expand from */
+        Motion *existing = nullptr;
+        Discretization<Motion>::Cell *ecell = nullptr;
+        disc_.selectMotion(existing, ecell);
+        assert(existing);
+
+        psampler->sampleUniformWithoutProjection(xstate);  // ishida
+        const Eigen::VectorXd& existing_vec = *existing->state->as<ompl::base::ConstrainedStateSpace::StateType>(); // current
+        const Eigen::VectorXd& xstate_vec = *xstate->as<ompl::base::ConstrainedStateSpace::StateType>(); // target
+        Eigen::VectorXd&& diff = xstate_vec - existing_vec;
+        Eigen::VectorXd&& diff_clamped = diff.cwiseMin(motion_step_box_).cwiseMax(-motion_step_box_);
+        Eigen::VectorXd target_vec = existing_vec + diff_clamped;
+
+        bool total_success = false;
+        {
+          bool projection_success = this->project_fn_(target_vec);
+          if(projection_success) {
+            Eigen::VectorXd&& diff_actual = target_vec - existing_vec;
+            bool inside_msbox = (diff_actual.array().abs() <= motion_step_box_.array()).all();
+            if(inside_msbox) {
+              total_success = true;
+            }
+          }
+        }
+        if(total_success) {
+          auto *motion = new Motion(si_);
+          const auto& target_state = motion->state->as<ompl::base::ConstrainedStateSpace::StateType>();
+          target_state->copy(target_vec);
+          motion->parent = existing;
+
+          const auto& goal_vec = *goal_state->getState()->as<ompl::base::ConstrainedStateSpace::StateType>();
+          Eigen::VectorXd diff = goal_vec - target_vec;
+          auto dist = diff.norm();
+          bool goal_reached = (diff.array().abs() < motion_step_box_.array()).all();
+          projectionEvaluator_->computeCoordinates(motion->state, xcoord);
+          disc_.addMotion(motion, xcoord, dist);
+
+          if(goal_reached) {
+            approxdif = 0.0;
+            solution = motion;
+            break;
+          }
+          if(dist < approxdif) {
+            approxdif = dist;
+            approxsol = motion;
+          }
+        }else{
+          ecell->data->score *= failedExpansionScoreFactor_;
+        }
+        disc_.updateCell(ecell);
+    }
+
+    bool solved = false;
+    bool approximate = false;
+    if (solution == nullptr)
+    {
+        solution = approxsol;
+        approximate = true;
+    }
+
+    if (solution != nullptr)
+    {
+        lastGoalMotion_ = solution;
+
+        /* construct the solution path */
+        std::vector<Motion *> mpath;
+        while (solution != nullptr)
+        {
+            mpath.push_back(solution);
+            solution = solution->parent;
+        }
+
+        /* set the solution path */
+        auto path(std::make_shared<PathGeometric>(si_));
+        for (int i = mpath.size() - 1; i >= 0; --i)
+            path->append(mpath[i]->state);
+        pdef_->addSolutionPath(path, approximate, approxdif, getName());
+        solved = true;
+    }
+
+    si_->freeState(xstate);
+
+    OMPL_INFORM("%s: Created %u states in %u cells (%u internal + %u external)", getName().c_str(),
+                disc_.getMotionCount(), disc_.getCellCount(), disc_.getGrid().countInternal(),
+                disc_.getGrid().countExternal());
+
+    return {solved, approximate};
 }

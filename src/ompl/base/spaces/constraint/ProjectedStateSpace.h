@@ -58,12 +58,15 @@ namespace ompl
         class ProjectedStateSampler : public WrapperStateSampler
         {
         public:
+            using Ptr = std::shared_ptr<ProjectedStateSampler>;
             /** \brief Constructor. */
             ProjectedStateSampler(const ProjectedStateSpace *space, StateSamplerPtr sampler);
 
             /** \brief Sample a state uniformly in ambient space and project to
              * the manifold. Return sample in \a state. */
             void sampleUniform(State *state) override;
+
+            void sampleUniformWithoutProjection(State *state);
 
             /** \brief Sample a state uniformly from the ball with center \a
              * near and radius \a distance in ambient space and project to the
